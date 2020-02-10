@@ -23,7 +23,7 @@ $(function () {
             code: 2,
         },
         'chuanda': {
-            name: '时尚',
+            name: '穿搭',
             code: 3,
         },
         'meizhuang': {
@@ -34,9 +34,65 @@ $(function () {
             name: '母婴育儿',
             code: 5,
         },
-        'sannong': {
-            name: '三农',
+        'chongwu': {
+            name: '宠物',
             code: 6,
+        },
+        'jiaju': {
+            name: '家居',
+            code: 7,
+        },
+        'yingshiyule': {
+            name: '影视娱乐',
+            code: 8,
+        },
+        'youxi': {
+            name: '游戏',
+            code: 9,
+        },
+        'jiankang': {
+            name: '健康',
+            code: 10,
+        },
+        'tiyu': {
+            name: '体育',
+            code: 11,
+        },
+        'dongman': {
+            name: '动漫',
+            code: 12,
+        },
+        'shishang': {
+            name: '时尚',
+            code: 13,
+        },
+        'jiaoyu': {
+            name: '教育',
+            code: 14,
+        },
+        'qiche': {
+            name: '汽车',
+            code: 15,
+        },
+        'keji': {
+            name: '科技',
+            code: 16,
+        },
+        'sheyingjiaoxue': {
+            name: '摄影教学',
+            code: 17,
+        },
+        'zhengwu': {
+            name: '政务',
+            code: 18,
+        },
+        'bangongruanjian': {
+            name: '办公软件',
+            code: 19,
+        },
+        'wenxueyishu': {
+            name: '文学艺术',
+            code: 20,
         }
     }
     let param = (lib.GetRequest())['type'];
