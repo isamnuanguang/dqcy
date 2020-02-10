@@ -529,7 +529,6 @@ h6 {
     text-align: right;
     text-transform: capitalize;
     width: calc(100% - 20px);
-    float: left
 }
 
 #yoo-title-sm h2,
@@ -928,7 +927,9 @@ h6 {
     padding: 6px 0 0;
     overflow: hidden
 }
-
+#yoo-list .row {
+    position: relative;
+}
 #yoo-list>.row {
     margin-left: -3px;
     margin-right: -3px
@@ -937,7 +938,9 @@ h6 {
 #yoo-list li {
     width: 50%;
     padding: 0 3px 6px;
-    float: left;
+    position: absolute;
+    overflow: hidden;
+    /* float: left; */
     -webkit-transition: all .3s;
     transition: all .3s
 }
@@ -1359,7 +1362,7 @@ h6 {
 
 @media(min-width:760px) {
     .container {
-        width: 728px
+        width: 760px
     }
 
     #yoo-list {
@@ -1433,7 +1436,7 @@ h6 {
 
 @media(min-width:1200px) {
     .container {
-        width: 1000px
+        width: 1200px
     }
 
     #yoo-list li {

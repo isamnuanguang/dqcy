@@ -97,7 +97,6 @@ $(function () {
     }
     let param = (lib.GetRequest())['type'];
     let BaseUrl = 'http://123.56.69.222:5555/';
-    console.log(param, urlList['param']);
     let categoryUrl = BaseUrl + urlList[param]['code'];
     $('#category-title').html(urlList[param]['name'])
     $.ajax({
@@ -125,9 +124,59 @@ $(function () {
                 `
             }
             $('#yoo-list ul').append(html);
+            $('#yoo-list ul').imagesLoaded(function () {
+                waterFall()
+            });
         },
         error: function (res) {
             console.log(res)
         }
     })
+    function waterFall() {
+        var pageWidth = $('.row').width();
+        var columns = Math.floor(pageWidth / $(".row li").width());
+        var arr = [];
+        var rowBoxHeight = 0;
+        $(".row li").each(function (i) {
+            rowBoxHeight += $('.row li').eq(i).outerHeight();
+            $('.row').height(rowBoxHeight)
+            var height = $('.row li').eq(i).outerHeight();
+            let boxheight = height;
+            if (i < columns) {
+                // 2- 确定第一行
+                $(this).css({
+                    top: 0,
+                    left: ($(".row li").outerWidth()) * i
+                });
+                arr.push(boxheight);
+
+            } else {
+                // 其他行
+                // 3- 找到数组中最小高度  和 它的索引
+                var minHeight = arr[0];
+                var index = 0;
+                for (var j = 0; j < arr.length; j++) {
+                    if (minHeight > arr[j]) {
+                        minHeight = arr[j];
+                        index = j;
+                    }
+                }
+                // 4- 设置下一行的第一个盒子位置
+                // top值就是最小列的高度 
+                $(this).css({
+                    top: arr[index],
+                    left: $(".row li").eq(index).css("left")
+                });
+
+                // 5- 修改最小列的高度 
+                // 最小列的高度 = 当前自己的高度 + 拼接过来的高度
+                arr[index] = arr[index] + boxheight;
+            }
+        });
+    }
+
+    // 页面尺寸改变时实时触发
+    window.onresize = function () {
+        waterFall();
+    };
 })
