@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="shortcut icon" href="#/favicon.ico">
+    <link href="css/app.css" rel="stylesheet" type="text/css">
+    <title>创意分类</title>
+</head>
+
+<body>
+    <header id="yoo-header">
+        <nav class="nav-icon">
+            <a href="index.html" title="Yooying" class="i-brand"> 抖起创意 </a>
+            <a href="javascript:;" class="i-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24" stroke-width="3.5">
+                    <path d="M4 8 L28 8 M4 16 L28 16 M4 24 L28 24"></path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" stroke-width="3.5">
+                    <path d="M2 30 L30 2 M30 30 L2 2"></path>
+                </svg>
+            </a>
+            <a href="#/search" class="i-search" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20" stroke-width="3.5">
+                    <circle cx="14" cy="14" r="12"></circle>
+                    <path d="M23 23 L30 30"></path>
+                </svg>
+            </a>
+        </nav>
+        <nav class="nav-bar">
+            <!-- <a href="#/" title="Discover">Discover</a> 
+            <a href="#/inspirations"title="Inspirations">Inspirations</a> 
+            <a href="#/hot-posts"title="What&#39;s hot">What's hot</a> 
+            <a href="#/inspirations/girls"title="Girls">Girls</a> 
+            <a href="#/inspirations/travel" title="Travel">Travel</a> 
+            <a href="#/inspirations/funny" title="Funny">Funny</a> 
+            <a href="#/tag/love" title="Love">#Love</a> 
+            <a href="#/tag/instagood" title="Instagood">#Instagood</a> 
+            <a href="#/tag/beautiful" title="Beautiful">#Beautiful</a> -->
+        </nav>
+        <ul class="nav-dropdown">
+            <li><a href="index.html" title="Discover">首页</a></li>
+            <!-- <li><a href="#/inspirations" title="Inspirations">Inspirations</a></li> -->
+            <li><a href="#">English</a></li>
+            <li><a href="#">日本語</a></li>
+            <!-- <li><a href="#/about" rel="nofollow">About&amp;Help</a></li> -->
+        </ul>
+    </header>
+    
+    <div class="container" id="yoo-list">
+        <ul class="row">
+            <div id="yoo-title-sm" class="clearfix">
+                <h2> <a href="https://www.yooying.com/hot-posts" title="Hot Posts" id="category-title">精彩内容</a> </h2> 
+            </div>
+        </ul>
+        <div id="yoo-loading">
+            <!-- <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+            </div> -->
+            <div class="button hide" data-page="home" data-switch="off" data-name="home" data-next="home"><span
+                    class="a">加载更多</span><span class="b">加载失败，请点击重试</span></div>
+            <!-- <div class="end"> <a href="https://www.yooying.com/inspirations?ref=discover" rel="nofollow"
+                    class="button">See
+                    More</a> </div> -->
+        </div>
+    </div>
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+    <script src="js/category.js"></script>
+</body>
+
+</html>
