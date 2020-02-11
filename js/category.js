@@ -139,7 +139,6 @@ $(function () {
         var rowBoxHeight = 0;
         $(".row li").each(function (i) {
             rowBoxHeight += $('.row li').eq(i).outerHeight();
-            $('.row').height(rowBoxHeight)
             var height = $('.row li').eq(i).outerHeight();
             let boxheight = height;
             if (i < columns) {
@@ -173,6 +172,7 @@ $(function () {
                 arr[index] = arr[index] + boxheight;
             }
         });
+        $('.row').height(rowBoxHeight / columns + 300)
     }
 
     // 页面尺寸改变时实时触发
