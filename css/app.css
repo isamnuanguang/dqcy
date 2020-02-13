@@ -659,7 +659,7 @@ h6 {
 
 #yoo-top .a h2 {
     display: inline-block;
-    margin: 5px;
+    margin: 10px;
     font-size: 1.2rem
 }
 
@@ -2140,4 +2140,32 @@ h6 {
 }
 .video-img {
     width: 100%;
+}
+.type-color-1 {
+    color: rgba(239, 87, 119, 1);
+    border-bottom: 1px dotted rgba(239, 87, 119, .35)
+}
+.type-color-2 {
+    color: rgba(94, 146, 211, 1);
+    border-bottom: 1px dotted rgba(94, 146, 211, .35)
+}
+.type-color-3 {
+    color: rgba(251, 177, 102, 1);
+    border-bottom: 1px dotted rgba(251, 177, 102, .35)
+}
+.type-color-4 {
+    color: rgba(15, 185, 177, 1);
+    border-bottom: 1px dotted rgba(15, 185, 177, .35)
+}
+.type-color-5 {
+    color: rgba(39, 174, 96, 1);
+    border-bottom: 1px dotted rgba(39, 174, 96, .35)
+}
+.type-color-6 {
+    color: rgba(149, 175, 192, 1);
+    border-bottom: 1px dotted rgba(149, 175, 192, .35)
+}
+.type-color-7 {
+    color: rgba(227, 73, 120, 1);
+    border-bottom: 1px dotted rgba(227, 73, 120, .35)
 }

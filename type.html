@@ -40,73 +40,16 @@
     <div id="yoo-top">
         <div class="a">
             <div class="container">
-                <h2><a href="/inspirations/fashion"
-                        style="color: rgba(227,73,120, 1); border-bottom: 1px dotted rgba(227,73,120, .35)">Fashion</a>
-                </h2>
-                <h2><a href="/inspirations/film"
-                        style="color: rgba(239,87,119, 1); border-bottom: 1px dotted rgba(239,87,119, .35)">Film</a>
-                </h2>
-                <h2><a href="/inspirations/food-drink"
-                        style="color: rgba(253,121,168, 1); border-bottom: 1px dotted rgba(253,121,168, .35)">Food &amp;
-                        Drink</a></h2>
-                <h2><a href="/inspirations/home-decor"
-                        style="color: rgba(94,146,211, 1); border-bottom: 1px dotted rgba(94,146,211, .35)">Home
-                        Decor</a>
-                </h2>
-                <h2><a href="/inspirations/fitness"
-                        style="color: rgba(129,177,236, 1); border-bottom: 1px dotted rgba(129,177,236, .35)">Fitness</a>
-                </h2>
-                <h2><a href="/inspirations/travel"
-                        style="color: rgba(251,177,102, 1); border-bottom: 1px dotted rgba(251,177,102, .35)">Travel</a>
-                </h2>
-                <h2><a href="/inspirations/girls"
-                        style="color: rgba(255,178,45, 1); border-bottom: 1px dotted rgba(255,178,45, .35)">Girls</a>
-                </h2>
-                <h2><a href="/inspirations/funny"
-                        style="color: rgba(240,195,81, 1); border-bottom: 1px dotted rgba(240,195,81, .35)">Funny</a>
-                </h2>
-                <h2><a href="/inspirations/photography"
-                        style="color: rgba(30,136,229, 1); border-bottom: 1px dotted rgba(30,136,229, .35)">Photography</a>
-                </h2>
-                <h2><a href="/inspirations/mens-fashion"
-                        style="color: rgba(3,169,244, 1); border-bottom: 1px dotted rgba(3,169,244, .35)">Men's
-                        Fashion</a>
-                </h2>
-                <h2><a href="/inspirations/art"
-                        style="color: rgba(75,207,250, 1); border-bottom: 1px dotted rgba(75,207,250, .35)">Art</a></h2>
-                <h2><a href="/inspirations/animal"
-                        style="color: rgba(15,185,177, 1); border-bottom: 1px dotted rgba(15,185,177, .35)">Animal</a>
-                </h2>
-                <h2><a href="/inspirations/cars"
-                        style="color: rgba(43,203,186, 1); border-bottom: 1px dotted rgba(43,203,186, .35)">Cars</a>
-                </h2>
-                <h2><a href="/inspirations/sport"
-                        style="color: rgba(126,214,223, 1); border-bottom: 1px dotted rgba(126,214,223, .35)">Sport</a>
-                </h2>
-                <h2><a href="/inspirations/music"
-                        style="color: rgba(39,174,96, 1); border-bottom: 1px dotted rgba(39,174,96, .35)">Music</a></h2>
-                <h2><a href="/inspirations/beauty"
-                        style="color: rgba(50,199,135, 1); border-bottom: 1px dotted rgba(50,199,135, .35)">Beauty</a>
-                </h2>
-                <h2><a href="/inspirations/yoga"
-                        style="color: rgba(104,206,158, 1); border-bottom: 1px dotted rgba(104,206,158, .35)">Yoga</a>
-                </h2>
-                <h2><a href="/inspirations/technology"
-                        style="color: rgba(127,143,166, 1); border-bottom: 1px dotted rgba(127,143,166, .35)">Technology</a>
-                </h2>
-                <h2><a href="/inspirations/holiday"
-                        style="color: rgba(149,175,192, 1); border-bottom: 1px dotted rgba(149,175,192, .35)">Holiday</a>
-                </h2>
             </div>
         </div>
     </div>
-    <div class="container" id="yoo-list">
+    <!-- <div class="container" id="yoo-list">
         <div id="yoo-title-sm" class="clearfix">
             <h2> <a href="https://www.yooying.com/hot-posts" title="Hot Posts" id="category-title">精彩内容</a> </h2>
         </div>
         <ul class="row">
         </ul>
-        <!-- <div id="yoo-loading">
+        <div id="yoo-loading">
             <div class="spinner">
                 <div class="rect1"></div>
                 <div class="rect2"></div>
@@ -115,7 +58,7 @@
             </div>
             <div class="button hide" data-page="home" data-switch="off" data-name="home" data-next="home"><span
                     class="a">加载更多</span><span class="b">加载失败，请点击重试</span></div>
-            <div class="end"> <a href="https://www.yooying.com/inspirations?ref=discover" rel="nofollow"
+            <div class="end"> <a href="https://www.yooying.comcategory.html?type=ref=discover" rel="nofollow"
                     class="button">See
                     More</a> </div>
         </div> -->
@@ -206,7 +149,16 @@
             code: 20,
         }
     }
-    
+    const colorList = ['type-color-1', 'type-color-2', 'type-color-3', 'type-color-4', 'type-color-5', 'type-color-6', 'type-color-7']
+    html = '';
+    for (let key in typeList) {
+        let index = Math.floor(Math.random()*colorList.length);
+        html += '<h2>'
+                + '<a href="' + 'category.html/type=' + typeList[key] + '" '
+                + 'class="' + colorList[index] + '">' + typeList[key]['name'] + '</a>'
+                + '</h2>'
+    }
+    $('#yoo-top .container').append(html);
     </script>
 </body>
 

@@ -106,8 +106,9 @@ $(function(){
         const scrollTop = document.documentElement.scrollTop === 0 ? document.body.scrollTop : document.documentElement.scrollTop;
         const scrollHeight = document.documentElement.scrollTop === 0 ? document.body.scrollHeight : document.documentElement.scrollHeight;
         if (clientHeight + scrollTop + 10 > scrollHeight) {
-            page += 1;
+            this.console.log(123)
             if (loadMore) {
+                page += 1;
                 dataUrl = baseUrl + '0/' + (page * endCount) + '/' + ((page * endCount) + endCount)
                 $.ajax({
                     url: dataUrl,
@@ -159,6 +160,8 @@ $(function(){
                         console.log(res)
                     }
                 })
+            } else {
+                return false;
             }
         }
     }
