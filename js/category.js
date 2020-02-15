@@ -152,7 +152,73 @@ $(function () {
             console.log(res)
         }
     })
-    
+    function throttle(fn) {
+        let waitRun = true;
+        return function () {
+            if (!waitRun) {
+                return;
+            }
+            waitRun = false;
+            setTimeout(() => {
+                fn.apply(this, arguments);
+                waitRun = true;
+            }, 300);
+        }
+    }
+
+    function loadPageData() {
+        const clientHeight = document.body.clientHeight && document.documentElement.clientHeight ? Math.min(document.body.clientHeight, document.documentElement.clientHeight) : document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop === 0 ? document.body.scrollTop : document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollTop === 0 ? document.body.scrollHeight : document.documentElement.scrollHeight;
+        if (clientHeight + scrollTop + 10 > scrollHeight) {
+            if (loadMore) {
+                page += 1;
+                dataUrl = baseUrl + '0/' + (page * endCount) + '/' + ((page * endCount) + endCount)
+                $.ajax({
+                    url: dataUrl,
+                    type: 'get',
+                    beforeSend: function () {
+                        $('.loading').show()
+                    },
+                    success: function (res) {
+                        res = res.data;
+                        let html = '';
+                        if (res.length < 20) {
+                            loadMore = false;
+                        }
+                        for (let i = 0; i < res.length; i++) {
+                            html += '<li>' +
+                                '<section>' +
+                                '<a class="img" href="' + res[i]['video_url'] + '" target="_blank">' +
+                                '<i class="icon-play"></i>' +
+                                '<img class="video-img" src="' + res[i]['video_img_url'] + '">' +
+                                '</a>' +
+                                '<div class="caption">' +
+                                '<p>' + res[i]['video_title'] + '</p>' +
+                                '<footer>' +
+                                '<small><i class="icon-like"></i>' + res[i]['video_like'] + '</small ><small><i class="icon-comment"></i>' + res[i]['video_comment'] + '</small>' +
+                                '</footer>' +
+                                '</div>' +
+                                '</section>' +
+                                '</li>'
+                        }
+                        $('#yoo-list ul').append(html);
+                        $('#yoo-list ul').imagesLoaded(function () {
+                            waterFall()
+                        });
+                        loadMore = true;
+                        $('.loading').hide()
+                    },
+                    error: function (res) {
+                        console.log(res)
+                    }
+                });
+            } else {
+                return false;
+            }
+        }
+
+    }
     function waterFall() {
         var pageWidth = $('.row').width();
         var columns = Math.floor(pageWidth / $(".row li").width());
@@ -200,65 +266,66 @@ $(function () {
     window.onresize = function () {
         waterFall();
     };
-    window.onscroll = function () {
-        const clientHeight = document.documentElement.scrollTop === 0 ? document.body.clientHeight : document.documentElement.clientHeight;
-        const scrollTop = document.documentElement.scrollTop === 0 ? document.body.scrollTop : document.documentElement.scrollTop;
-        const scrollHeight = document.documentElement.scrollTop === 0 ? document.body.scrollHeight : document.documentElement.scrollHeight;
-        if (clientHeight + scrollTop + 10 > scrollHeight) {
-            page += 1;
-            if (loadMore) {
-                dataUrl = categoryUrl + '/' + (page * endCount) + '/' + ((page * endCount) + endCount)
-                $.ajax({
-                    url: dataUrl,
-                    type: 'get',
-                    success: function (res) {
-                        res = res.data;
-                        let html = '';
-                        if (res.length < 20) {
-                            loadMore = false;
-                        }
-                        for (let i = 0; i < res.length; i++) {
-                            html += '<li>' +
-                                '<section>' +
-                                '<a class="img" href="' + res[i]['video_url'] + '" target="_blank">' +
-                                '<i class="icon-play"></i>' +
-                                '<img class="video-img" src="' + res[i]['video_img_url'] + '">' +
-                                '</a>' +
-                                '<div class="caption">' +
-                                '<p>' + res[i]['video_title'] + '</p>' +
-                                '<footer>' +
-                                '<small><i class="icon-like"></i>' + res[i]['video_like'] + '</small ><small><i class="icon-comment"></i>' + res[i]['video_comment'] + '</small>' +
-                                '</footer>' +
-                                '</div>' +
-                                '</section>' +
-                                '</li>'
-                            // html += `
-                            //     <li>
-                            //         <section > 
-                            //             <a class="img" href="${res[i]['video_url']}" target="_blank">
-                            //                 <i class="icon-play"></i>
-                            //                 <img class="video-img" src="${res[i]['video_img_url']}"> 
-                            //             </a> 
-                            //             <div class="caption">
-                            //                 <p>${res[i]['video_title']}</p>
-                            //                 <footer>
-                            //                     <small><i class="icon-like"></i>${res[i]['video_like']}</small ><small><i class="icon-comment"></i>${res[i]['video_comment']}</small> 
-                            //                 </footer> 
-                            //             </div> 
-                            //         </section> 
-                            //     </li>
-                            // `
-                        }
-                        $('#yoo-list ul').append(html);
-                        $('#yoo-list ul').imagesLoaded(function () {
-                            waterFall()
-                        });
-                    },
-                    error: function (res) {
-                        console.log(res)
-                    }
-                })
-            }
-        }
-    }
+    window.addEventListener('scroll', throttle(loadPageData));
+    // window.onscroll = function () {
+    //     const clientHeight = document.documentElement.scrollTop === 0 ? document.body.clientHeight : document.documentElement.clientHeight;
+    //     const scrollTop = document.documentElement.scrollTop === 0 ? document.body.scrollTop : document.documentElement.scrollTop;
+    //     const scrollHeight = document.documentElement.scrollTop === 0 ? document.body.scrollHeight : document.documentElement.scrollHeight;
+    //     if (clientHeight + scrollTop + 10 > scrollHeight) {
+    //         page += 1;
+    //         if (loadMore) {
+    //             dataUrl = categoryUrl + '/' + (page * endCount) + '/' + ((page * endCount) + endCount)
+    //             $.ajax({
+    //                 url: dataUrl,
+    //                 type: 'get',
+    //                 success: function (res) {
+    //                     res = res.data;
+    //                     let html = '';
+    //                     if (res.length < 20) {
+    //                         loadMore = false;
+    //                     }
+    //                     for (let i = 0; i < res.length; i++) {
+    //                         html += '<li>' +
+    //                             '<section>' +
+    //                             '<a class="img" href="' + res[i]['video_url'] + '" target="_blank">' +
+    //                             '<i class="icon-play"></i>' +
+    //                             '<img class="video-img" src="' + res[i]['video_img_url'] + '">' +
+    //                             '</a>' +
+    //                             '<div class="caption">' +
+    //                             '<p>' + res[i]['video_title'] + '</p>' +
+    //                             '<footer>' +
+    //                             '<small><i class="icon-like"></i>' + res[i]['video_like'] + '</small ><small><i class="icon-comment"></i>' + res[i]['video_comment'] + '</small>' +
+    //                             '</footer>' +
+    //                             '</div>' +
+    //                             '</section>' +
+    //                             '</li>'
+    //                         // html += `
+    //                         //     <li>
+    //                         //         <section > 
+    //                         //             <a class="img" href="${res[i]['video_url']}" target="_blank">
+    //                         //                 <i class="icon-play"></i>
+    //                         //                 <img class="video-img" src="${res[i]['video_img_url']}"> 
+    //                         //             </a> 
+    //                         //             <div class="caption">
+    //                         //                 <p>${res[i]['video_title']}</p>
+    //                         //                 <footer>
+    //                         //                     <small><i class="icon-like"></i>${res[i]['video_like']}</small ><small><i class="icon-comment"></i>${res[i]['video_comment']}</small> 
+    //                         //                 </footer> 
+    //                         //             </div> 
+    //                         //         </section> 
+    //                         //     </li>
+    //                         // `
+    //                     }
+    //                     $('#yoo-list ul').append(html);
+    //                     $('#yoo-list ul').imagesLoaded(function () {
+    //                         waterFall()
+    //                     });
+    //                 },
+    //                 error: function (res) {
+    //                     console.log(res)
+    //                 }
+    //             })
+    //         }
+    //     }
+    // }
 })
