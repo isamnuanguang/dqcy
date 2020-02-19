@@ -24,7 +24,7 @@ $(function() {
         success: function (res) {
             let c_html = '';
             res = res.data;
-            $('.video-img').attr({'src': res.video_img_url});
+            $('.v-desc-box').attr({'src': res.video_img_url});
             $('#photo .img').attr({'href': res.video_url})
             $('.video-desc-title').html(res.video_title);
             $('.vid').html(res.aweme_id);
