@@ -2177,19 +2177,19 @@
                 }
             }
 
-            // function u() {
-            //     this.initForms()
-            // }
-            // u.prototype.initForms = function () {
-            //     var e = s(".js-open-signup"),
-            //         t = s(".js-signup-inline");
-            //     (e.length || t.length) && (this.SignupModal = new i(e, a.bind(this, {
-            //         signupHeader: r.t("signup.header")
-            //     }), {
-            //         modalActiveContainerClass: "signup-modal js-is-active",
-            //         clickingOverlayClosesModal: !1
-            //     }))
-            // }, e.exports = u
+            function u() {
+                this.initForms()
+            }
+            u.prototype.initForms = function () {
+                var e = s(".js-open-signup"),
+                    t = s(".js-signup-inline");
+                (e.length || t.length) && (this.SignupModal = new i(e, a.bind(this, {
+                    signupHeader: r.t("signup.header")
+                }), {
+                    modalActiveContainerClass: "signup-modal js-is-active",
+                    clickingOverlayClosesModal: !1
+                }))
+            }, e.exports = u
         },
         "./node_modules/@shopify/marketing-assets/dist/javascripts/modules/social-shares-buttons.js": function (e, t, o) {
             "use strict";
