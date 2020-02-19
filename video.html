@@ -169,20 +169,21 @@
     <script src="js/index.js"></script>
     <script src="./iShare/iShare.min.js"></script>
     <!-- <script src="./iShare/qrcode.min.js"></script> -->
+    <script src="js/video.js"></script>
     <script type="text/javascript">
         (new iShare({container:'.iShare1',config:{
-            title: '分享标题',
-            description: '这是分享描述文本',
-            url: 'http://www.baidu.com',
+            title: '沙抖创意',
+            description: $('.caption p').text(),
+            url: 'http://123.56.69.222',
             isAbroad: false,
             isTitle: true,
             initialized: false,
             WXoptions:{
                 evenType: 'hover',
                 isTitleVisibility: true,
-                title: '二维码标题',
+                title: '微信分享',
                 isTipVisibility: true,
-                tip: '二维码描述文本',
+                tip: '扫码分享本页',
                 qrcodeW: 140,
                 qrcodeH: 140,
                 qrcodeBgc: '#fff',
@@ -191,7 +192,6 @@
             }
         }}));
     </script>
-    <script src="js/video.js"></script>
 </body>
 
 </html>
