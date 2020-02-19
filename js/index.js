@@ -2,8 +2,8 @@ $(function(){
     let page = 0;
     let endCount = 20;
     let loadMore = false;
-    let baseUrl = 'http://101.200.123.24:5555/';
-    // let baseUrl = 'http://123.56.69.222:555/';
+    // let baseUrl = 'http://101.200.123.24:5555/';
+    let baseUrl = 'http://123.56.69.222:5555/';
     let dataUrl =  baseUrl + '0/' + (page * endCount) + '/' + ((page * endCount) + endCount);
     $.ajax({
         url: dataUrl,
@@ -20,7 +20,7 @@ $(function(){
             for(let i = 0; i < res.length; i++) {
                 html += '<li>'
                         + '<section>'
-                        + '<a class="img" href="' + res[i]['video_url'] + '" target="_blank">'
+                        +'<a class="img" href="video.html?vid=' + res[i]['aweme_id'] + '">'
                         + '<i class="icon-play"></i>'
                         + '<img class="video-img" src="' + res[i]['video_img_url'] + '">'
                         + '</a>' 

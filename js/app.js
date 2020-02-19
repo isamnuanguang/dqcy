@@ -86,7 +86,7 @@
             13 == t.which && (t.preventDefault(), m($(this)))
         }).on("click", ".search-btn", function () {
             m($(this).next("input"))
-        }).on("click", "#photo", function () {
+        }).on("click", "#photo1", function () {
             var t = $(this).width(),
                 n = $(this).height();
             $(this).find(".u").each(function () {

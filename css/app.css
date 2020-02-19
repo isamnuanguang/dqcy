@@ -951,12 +951,12 @@ h6 {
     box-shadow: 0 2px 4px -2px rgba(33, 37, 41, .08)
 }
 
-#yoo-list .img {
+#yoo-list .img, #photo .img {
     display: block;
     position: relative
 }
 
-#yoo-list .img .icon-play {
+#yoo-list .img .icon-play, #photo .icon-play {
     position: absolute;
     width: 38px;
     height: 38px;
@@ -1089,7 +1089,7 @@ h6 {
 #yoo-list footer,
 #yoo-post footer {
     padding-top: 10px;
-    border-top: 1px solid #f4f5f7;
+    /* border-top: 1px solid #f4f5f7; */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1232,19 +1232,12 @@ h6 {
     border-color: rgba(0, 0, 0, .65) transparent transparent
 }
 
-#yoo-post .post .photo img,
+/* #yoo-post .post .photo img,
 #yoo-post .post .photo video {
     width: 100%
-}
+} */
 
 #yoo-post .post .share {
-    margin-left: -20px;
-    margin-right: -20px;
-    border-bottom: 1px solid #f4f5f7
-}
-
-#yoo-post .post .share a {
-    float: left;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1254,9 +1247,26 @@ h6 {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    margin-left: -20px;
+    margin-right: -20px;
+    border-bottom: 1px solid #f4f5f7
+}
+
+#yoo-post .post .share a {
+    flex: 1;
+    /* float: left; */
+    /* display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; */
     text-align: center;
     padding: 10px 0;
-    width: 20%;
+    /* width: 20%; */
     opacity: .8
 }
 
@@ -1283,8 +1293,11 @@ h6 {
     display: inline-block
 }
 
-#yoo-post .share p {
+/* #yoo-post .share p {
     margin: -5px
+} */
+.caption p {
+    padding: 5px 0;
 }
 
 #yoo-post .share p a {
@@ -1293,12 +1306,12 @@ h6 {
 
 #yoo-post .comments .bg,
 #yoo-post .tags .bg {
-    padding-bottom: 0
+    padding-bottom: 5px
 }
 
 #yoo-post .tags ul {
     margin: -5px -5px 15px;
-    max-height: 160px;
+    /* max-height: 160px; */
     overflow: hidden
 }
 
@@ -1429,9 +1442,9 @@ h6 {
         padding: 10px
     }
 
-    #yoo-post .tags ul {
+    /* #yoo-post .tags ul {
         max-height: 240px
-    }
+    } */
 }
 
 @media(min-width:1200px) {
@@ -1488,12 +1501,12 @@ h6 {
     }
 
     .l_ {
-        width: 66.66666667%;
+        width: 54%;
         float: left
     }
 
     .r_ {
-        width: 33.33333333%;
+        width: 46%;
         float: right
     }
 
@@ -2160,6 +2173,15 @@ h6 {
 }
 .video-img {
     width: 100%;
+}
+#photo .video-img {
+    display: block;
+    /* width: auto; */
+    margin: 0 auto;
+}
+
+#photo .img {
+    background: none;
 }
 .type-color-1 {
     color: rgba(239, 87, 119, 1);

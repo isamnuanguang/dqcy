@@ -79,7 +79,7 @@ $(function () {
             code: 16,
         },
         'sheyingjiaoxue': {
-            name: '摄影教学',
+            name: '摄影',
             code: 17,
         },
         'zhengwu': {
@@ -87,17 +87,29 @@ $(function () {
             code: 18,
         },
         'bangongruanjian': {
-            name: '办公软件',
+            name: '办公',
             code: 19,
         },
         'wenxueyishu': {
-            name: '文学艺术',
+            name: '艺术',
             code: 20,
         }
     }
+
+    const colorList = ['type-color-1', 'type-color-2', 'type-color-3', 'type-color-4', 'type-color-5', 'type-color-6', 'type-color-7']
+    let type_html = '';
+    for (let key in urlList) {
+        let index = Math.floor(Math.random()*colorList.length);
+        type_html += '<h2>'
+                + '<a href="' + 'category.html?type=' + key + '" '
+                + 'class="' + colorList[index] + '">' + urlList[key]['name'] + '</a>'
+                + '</h2>'
+    }
+    $('#yoo-top .container').append(type_html);
+
     let param = (lib.GetRequest())['type'];
-    // let baseUrl = 'http://123.56.69.222:5555/';
-    let baseUrl = 'http://101.200.123.24:5555/';
+    let baseUrl = 'http://123.56.69.222:5555/';
+    // let baseUrl = 'http://101.200.123.24:5555/';
     let categoryUrl = baseUrl + urlList[param]['code'];
     $('#category-title').html(urlList[param]['name']);
     let page = 0;
