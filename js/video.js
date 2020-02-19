@@ -26,7 +26,11 @@ $(function() {
             res = res.data;
             $('.video-img').attr({'src': res.video_img_url});
             $('#photo .img').attr({'href': res.video_url})
-            $('.caption p').html(res.video_title);
+            $('.video-desc-title').html(res.video_title);
+            $('.vid').html(res.aweme_id);
+            $('.v-date').html(res.video_date);
+            $('.v-url').html(res.video_url);
+            $('.v-url').attr({'href': res.video_url});
             $('.like-count').html(res.video_like);
             $('.comment-count').html(res.video_comment);
             let hot_comment = JSON.parse(res.hot_comment.data);

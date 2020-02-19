@@ -170,8 +170,9 @@ $(function(){
 
     }
     // 页面尺寸改变时实时触发
-    window.onresize = function () {
-        waterFall();
-    };
+    // window.onresize = function () {
+    //     waterFall();
+    // };
+    window.addEventListener('resize', throttle(waterFall));
     window.addEventListener('scroll', throttle(loadPageData));
 })
