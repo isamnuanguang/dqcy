@@ -155,7 +155,7 @@
     for (let key in typeList) {
         let index = Math.floor(Math.random()*colorList.length);
         html += '<h2>'
-                + '<a href="' + 'category.html/type=' + typeList[key] + '" '
+                + '<a href="' + 'category.html?type=' + key + '" '
                 + 'class="' + colorList[index] + '">' + typeList[key]['name'] + '</a>'
                 + '</h2>'
     }
