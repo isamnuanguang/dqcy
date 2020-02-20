@@ -26,6 +26,7 @@ $(function() {
             res = res.data;
             $('.v-desc-box').attr({'src': res.video_img_url});
             $('#photo .img').attr({'href': res.video_url})
+            $('.btn-buy-play').attr({'href': res.video_url})
             $('.video-desc-title').html(res.video_title);
             $('.vid').html(res.aweme_id);
             $('.v-date').html(res.video_date);

@@ -2433,7 +2433,7 @@
                 var t = this.menuDom.$links.index(e);
                 this.menuDom.$links.removeClass(this.options.classLinkActive), e.classList.add(this.options.classLinkActive), this.options.$container.trigger("change", t)
             }, u.prototype.getScrollLimits = function () {
-                return document.body.classList.contains("js-modal-open") ? {} : (this.scrollLimits = {
+                return document.body.classList.contains("js-modal-open1") ? {} : (this.scrollLimits = {
                     containerHeight: Math.round(this.options.$container.outerHeight()),
                     menuTop: this.options.$container.offset().top - this.options.pageTopMargin,
                     menuHeight: Math.round(this.menuDom.$menu.outerHeight()),
