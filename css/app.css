@@ -2222,6 +2222,11 @@ h6 {
     justify-content: space-between;
     align-items: center;
 }
+@media(min-width: 320px) {
+    .v-flex1 {
+        display: block;
+    }
+}
 .price-line {
     font-size: 16px;
     padding: 10px 0;
