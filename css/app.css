@@ -972,7 +972,14 @@ h6 {
     top: calc(50% - 19px);
     left: calc(50% - 19px)
 }
-
+@media(min-width:760px) { 
+    #photo .icon-play {
+        width: 76px;
+        height: 76px;
+        top: calc(50% - 38px);
+        left: calc(50% - 38px)
+    }
+}
 #yoo-list .img .bg {
     width: 100%;
     height: auto;
