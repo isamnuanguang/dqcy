@@ -2184,14 +2184,14 @@ h6 {
 #photo .img {
     background: none;
 }
-.v-desc-info span {
+/* .v-desc-info span {
     font-size: 12px;
-}
+} */
 .v-desc-box {
     width: 100%;
 }
 .v-url {
-    color: #666;
+    color: #999;
     line-height: 1.5em;
 }
 .btn-buy-go {
@@ -2216,6 +2216,26 @@ h6 {
     border-style: solid;
     border-color: transparent;
     text-decoration: none;
+}
+.v-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.price-line {
+    font-size: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid #E0E0E0;
+    font-weight: 800;
+}
+.count-box {
+    display: inline-block;
+    margin: 10px 5px;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #6283c5;
 }
 .btn-buy-box {
     margin: 0 auto;
