@@ -2187,6 +2187,9 @@ h6 {
 /* .v-desc-info span {
     font-size: 12px;
 } */
+.v-desc-info {
+    margin-left: 5px;
+}
 .v-desc-box {
     width: 100%;
 }
@@ -2219,6 +2222,7 @@ h6 {
 }
 .v-flex {
     display: flex;
+    /* margin-left: 5px; */
     justify-content: space-between;
     align-items: center;
 }
@@ -2227,9 +2231,12 @@ h6 {
         display: block;
     }
 }
+.video-desc-title {
+    line-height: 1.5em;
+}
 .price-line {
     font-size: 16px;
-    padding: 10px 0;
+    padding: 15px 0;
     border-bottom: 1px solid #E0E0E0;
     font-weight: 800;
 }
