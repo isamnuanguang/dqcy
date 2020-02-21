@@ -980,6 +980,14 @@ h6 {
         left: calc(50% - 38px)
     }
 }
+@media(max-width:560px) {
+    #photo .icon-play {
+        width: 46px;
+        height: 46px;
+        top: calc(50% - 23px);
+        left: calc(50% - 23px)
+    }
+}
 #yoo-list .img .bg {
     width: 100%;
     height: auto;
@@ -1004,7 +1012,7 @@ h6 {
     height: 62px;
     line-height: 1.3rem;
     overflow: hidden;
-    margin: 10px 0
+    /* margin: 10px 0 */
 }
 
 #yoo-list>.row.list-a li.not {
@@ -1303,7 +1311,7 @@ h6 {
 /* #yoo-post .share p {
     margin: -5px
 } */
-.caption p {
+#photo .caption p {
     padding: 8px 0;
 }
 
@@ -2229,6 +2237,7 @@ h6 {
 }
 .v-flex {
     display: flex;
+    margin: 5px 0;
     /* margin-left: 5px; */
     justify-content: space-between;
     align-items: center;
@@ -2236,6 +2245,9 @@ h6 {
 @media(max-width: 360px) {
     .v-flex1 {
         display: block;
+    }
+    .v-flex p:first-child {
+        margin-bottom: 5px;
     }
 }
 .video-desc-title {
