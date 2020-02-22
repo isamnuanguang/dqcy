@@ -28,6 +28,9 @@ $(function() {
             $('#photo .img').attr({'href': res.video_url})
             $('.btn-buy-play').attr({'href': res.video_url})
             $('.video-desc-title').html(res.video_title);
+            $('.user-avatar .avatar').attr({'src': res.user_img_url});
+            $('.text a').html(res.user_nickname);
+            $('title').html(res.video_title + '-沙抖创意');
             $('.vid').html(res.aweme_id);
             $('.v-date').html(res.video_date);
             $('.v-url').html(res.video_url);
