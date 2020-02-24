@@ -2242,7 +2242,7 @@ h6 {
     justify-content: space-between;
     align-items: center;
 }
-@media(max-width: 360px) {
+@media(max-width: 450px) {
     .v-flex1 {
         display: block;
     }
@@ -2262,9 +2262,9 @@ h6 {
 .count-box {
     display: inline-block;
     margin: 10px 5px;
-    padding: 5px 10px;
+    padding: 3px 10px;
     border-radius: 50px;
-    font-size: 14px;
+    font-size: 13px;
     color: #fff;
     background-color: #6283c5;
 }

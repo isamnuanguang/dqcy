@@ -29,8 +29,10 @@ $(function() {
             $('.btn-buy-play').attr({'href': res.video_url})
             $('.video-desc-title').html(res.video_title);
             $('.user-avatar .avatar').attr({'src': res.user_img_url});
+            $('meta[name="description"]').attr({'content': res.video_title + ' - 沙抖创意'})
+            $('meta[name="keywords"]').attr({'content': res.user_nickname + '，最新短视频，最佳创意，创意剧本，视频拍摄制作，视频投放服务，抖音短视频，沙抖创意出品'})
             $('.text a').html(res.user_nickname);
-            $('title').html(res.video_title + '-沙抖创意');
+            $('title').html(res.video_title + ' - 沙抖创意');
             $('.vid').html(res.aweme_id);
             $('.v-date').html(res.video_date);
             $('.v-url').html(res.video_url);
