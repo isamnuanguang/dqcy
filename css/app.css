@@ -1763,7 +1763,17 @@ h6 {
     -webkit-transition: all .3s;
     transition: all .3s
 }
-
+.avatar-pic {
+    float: left;
+    border-radius: 50%;
+    background: #f4f5f7;
+    width: 45px;
+    height: 45px;
+}
+.user-nickname {
+    margin-left: 15px;
+    margin-top: 8px;
+}
 .avatar-blur {
     width: 85px;
     height: 85px;
