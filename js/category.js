@@ -164,17 +164,13 @@ $(function () {
             console.log(res)
         }
     })
-    function throttle(fn) {
-        let waitRun = true;
+    function debounce(fn) {
+        let timeout = null;
         return function () {
-            if (!waitRun) {
-                return;
-            }
-            waitRun = false;
-            setTimeout(() => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
                 fn.apply(this, arguments);
-                waitRun = true;
-            }, 300);
+            }, 500);
         }
     }
 
@@ -278,8 +274,8 @@ $(function () {
     // window.onresize = function () {
     //     waterFall();
     // };
-    window.addEventListener('resize', throttle(waterFall));
-    window.addEventListener('scroll', throttle(loadPageData));
+    window.addEventListener('resize', debounce(waterFall));
+    window.addEventListener('scroll', debounce(loadPageData));
     // window.onscroll = function () {
     //     const clientHeight = document.documentElement.scrollTop === 0 ? document.body.clientHeight : document.documentElement.clientHeight;
     //     const scrollTop = document.documentElement.scrollTop === 0 ? document.body.scrollTop : document.documentElement.scrollTop;
