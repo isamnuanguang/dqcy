@@ -22,8 +22,21 @@ $(function() {
         url: dataUrl,
         type: 'get',
         success: function (res) {
-            let c_html = '';
+            let c_html = '', time_str = '', minute_str = '', second_str = '';
             res = res.data;
+            console.log(res.video_data_info)
+            let day, hour, minute, second;
+            let duration = res.video_data_info.duration;
+            day = Math.floor(duration / 86400000);
+            hour = Math.floor((duration - day * 86400000) / 3600000);
+            minute = Math.floor((duration - day * 86400000 - hour * 3600000) / 60000);
+            second = Math.floor((duration - day * 86400000 - hour * 3600000 - minute * 60000) / 1000);
+            second_str = second + '秒';
+            if (minute !== 0) {
+                minute_str = minute + '分';
+            }
+            time_str = minute_str + second_str;
+            $('.v-time').html(time_str)
             $('.v-desc-box').attr({'src': res.video_img_url});
             $('#photo .img').attr({'href': res.video_url})
             $('.btn-buy-play').attr({'href': res.video_url})
@@ -40,6 +53,7 @@ $(function() {
             $('.v-url').attr({'href': res.video_url});
             $('.like-count').html(res.video_like);
             $('.comment-count').html(res.video_comment);
+            $('.share-count').html(res.share_count);
             let hot_comment = JSON.parse(res.hot_comment.data);
             for (let i = 0; i < hot_comment.length; i++) {
                 c_html += '<li><a href="javascript:;"' + hot_comment[i] + '" ' 
