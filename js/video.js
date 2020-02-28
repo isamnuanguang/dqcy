@@ -54,11 +54,11 @@ $(function() {
             $('.like-count').html(res.video_like);
             $('.comment-count').html(res.video_comment);
             $('.share-count').html(res.share_count);
-            let hot_comment = JSON.parse(res.hot_comment.data);
+            let hot_comment = res.hot_comment_list['comment_data'];
             for (let i = 0; i < hot_comment.length; i++) {
-                c_html += '<li><a href="javascript:;"' + hot_comment[i] + '" ' 
+                c_html += '<li><span ' 
                             + 'class="button button-white button-sm">'
-                            + hot_comment[i] + '</a></li>'
+                            + hot_comment[i]['text'] + '</span></li>'
             }
             $('.tags ul').append(c_html)
         },

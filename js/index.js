@@ -27,7 +27,7 @@ $(function(){
                         + '<div class="caption">'
                         + '<p>' + res[i]['video_title'] + '</p>'
                         + '<footer>'
-                        + '<small><i class="icon-like"></i>' + res[i]['video_like'] + '</small ><small><i class="icon-comment"></i>' + res[i]['video_comment'] + '</small>'
+                        +'<small><i class="icon-like"></i>' + res[i]['video_like'] + '</small ><small><i class="icon-comment"></i>' + res[i]['video_comment'] + '</small><small class="share-box"><i class="icon-vshare"></i>' + res[i]['share_count'] + '</small>'
                         + '</footer>'
                         + '</div>'
                         + '</section>'
@@ -100,7 +100,7 @@ $(function(){
                                 '<div class="caption">' +
                                 '<p>' + res[i]['video_title'] + '</p>' +
                                 '<footer>' +
-                                '<small><i class="icon-like"></i>' + res[i]['video_like'] + '</small ><small><i class="icon-comment"></i>' + res[i]['video_comment'] + '</small>' +
+                                '<small><i class="icon-like"></i>' + res[i]['video_like'] + '</small ><small><i class="icon-comment"></i>' + res[i]['video_comment'] + '</small><small class="share-box"><i class="icon-vshare"></i>' + res[i]['share_count'] + '</small>' +
                                 '</footer>' +
                                 '</div>' +
                                 '</section>' +
@@ -133,7 +133,7 @@ $(function(){
             var height = $('.row li').eq(i).outerHeight();
             let boxheight = height;
             if (i < columns) {
-                // 2- 确定第一行
+                // 第一行
                 $(this).css({
                     top: 0,
                     left: ($(".row li").outerWidth()) * i
@@ -142,7 +142,7 @@ $(function(){
 
             } else {
                 // 其他行
-                // 3- 找到数组中最小高度  和 它的索引
+                // 找到数组中最小高度  和 它的索引
                 var minHeight = arr[0];
                 var index = 0;
                 for (var j = 0; j < arr.length; j++) {
@@ -151,14 +151,14 @@ $(function(){
                         index = j;
                     }
                 }
-                // 4- 设置下一行的第一个盒子位置
+                // 设置下一行的第一个盒子位置
                 // top值就是最小列的高度 
                 $(this).css({
                     top: arr[index],
                     left: $(".row li").eq(index).css("left")
                 });
 
-                // 5- 修改最小列的高度 
+                // 修改最小列的高度 
                 // 最小列的高度 = 当前自己的高度 + 拼接过来的高度
                 arr[index] = arr[index] + boxheight;
             }
