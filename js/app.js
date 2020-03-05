@@ -84,7 +84,7 @@
             v($(this))
         }).on("keydown", ".search-input", function (t) {
             13 == t.which && (t.preventDefault(), m($(this)))
-        }).on("click", ".search-btn", function () {
+        }).on("click", ".search-btn1", function () {
             m($(this).next("input"))
         }).on("click", "#photo1", function () {
             var t = $(this).width(),
@@ -195,9 +195,9 @@
             "b" === t && (c = !0, r.hide()), s.show().data("switch", "on").find("span").hide(), s.find("." + t).show()
         }
 
-        function g(t, n, e) {
-            return e || (e = location.pathname), ga("send", "event", t, n, e)
-        }
+        // function g(t, n, e) {
+        //     return e || (e = location.pathname), ga("send", "event", t, n, e)
+        // }
 
         function v(t) {
             if ($("div,strong").hasClass("clear-search")) {
@@ -207,11 +207,11 @@
             }
         }
 
-        function m(t) {
-            var n = t,
-                e = $.trim(n.val()).toLowerCase();
-            g("search", n.data("from")), (e = e.replace("#", "").replace("@", "")).length > 0 && (window.location.href = "/search?q=" + encodeURI(e))
-        }
+        // function m(t) {
+        //     var n = t,
+        //         e = $.trim(n.val()).toLowerCase();
+        //     g("search", n.data("from")), (e = e.replace("#", "").replace("@", "")).length > 0 && (window.location.href = "/search?q=" + encodeURI(e))
+        // }
         // void 0 !== h && $(document).bind("scroll", function () {
         //     var t = s.data("name"),
         //         n = s.data("next");
@@ -253,11 +253,11 @@
         //         })
         //     }(n, t)
         // }), 
-        $(document).ready(function () {
-            v($(".search-input")), $(window).scroll(function () {
-                $(window).scrollTop() > 100 ? $(".back-to-top").fadeIn(200) : $(".back-to-top").fadeOut(200)
-            })
-        })
+        // $(document).ready(function () {
+        //     v($(".search-input")), $(window).scroll(function () {
+        //         $(window).scrollTop() > 100 ? $(".back-to-top").fadeIn(200) : $(".back-to-top").fadeOut(200)
+        //     })
+        // })
     },
     KqWi: function (t, n) {},
     L6bb: function (t, n, e) {
