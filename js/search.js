@@ -115,7 +115,7 @@ $(function () {
     let page = 0;
     let endCount = 10;
     let loadMore = false;
-    let searchUrl = baseUrl + 'search/'+ param + '/' + endCount + '/' + page;
+    let searchUrl = baseUrl + 'search/'+ param + '/' + endCount + '/' + page*endCount;
     $.ajax({
         url: searchUrl,
         type: 'get',
@@ -166,7 +166,7 @@ $(function () {
         if (clientHeight + scrollTop + 10 > scrollHeight) {
             if (loadMore) {
                 page += 1;
-                searchUrl = baseUrl + 'search/' + param + '/' + endCount + '/' + page;
+                searchUrl = baseUrl + 'search/' + param + '/' + endCount + '/' + page*endCount;
                 $.ajax({
                     url: searchUrl,
                     type: 'get',
