@@ -197,7 +197,7 @@ $(function () {
                         for (let i = 0; i < res.length; i++) {
                             html += '<li>' +
                                 '<section>' +
-                                '<a class="img" href="' + res[i]['video_url'] + '" target="_blank">' +
+                                '<a class="img" href="video.html?vid=' + res[i]['aweme_id'] + '">' +
                                 '<i class="icon-play"></i>' +
                                 '<img class="video-img" src="' + res[i]['video_img_url'] + '">' +
                                 '</a>' +
