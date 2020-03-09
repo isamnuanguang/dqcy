@@ -146,6 +146,8 @@ $(function () {
         },
         error: function (res) {
             console.log(res)
+            $('.loading').hide()
+            $('.errorPage').show()
         }
     })
     // 节流函数
@@ -208,7 +210,9 @@ $(function () {
                         $('.loading').hide()
                     },
                     error: function (res) {
-                        console.log(res)
+                        console.log(res);
+                        $('.loading').hide()
+                        $('.errorPage').show()
                     }
                 });
             } else {

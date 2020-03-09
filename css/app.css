@@ -2324,3 +2324,6 @@ h6 {
     color: rgba(227, 73, 120, 1);
     border-bottom: 1px dotted rgba(227, 73, 120, .35)
 }
+.errorPage {
+    display: none;
+}
