@@ -149,12 +149,17 @@ $(function () {
         }
     })
 
-    function debounce(fn) {
-        let timeout = null;
+    // 节流函数
+    function throttle(fn) {
+        let waitRun = true;
         return function () {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => {
+            if (!waitRun) {
+                return;
+            }
+            waitRun = false;
+            setTimeout(() => {
                 fn.apply(this, arguments);
+                waitRun = true;
             }, 500);
         }
     }
@@ -165,6 +170,7 @@ $(function () {
         const scrollHeight = document.documentElement.scrollTop === 0 ? document.body.scrollHeight : document.documentElement.scrollHeight;
         if (clientHeight + scrollTop + 10 > scrollHeight) {
             if (loadMore) {
+                loadMore = false;
                 page += 1;
                 dataUrl = baseUrl + '0/' + (page * endCount) + '/' + ((page * endCount) + endCount)
                 $.ajax({
@@ -255,6 +261,6 @@ $(function () {
         });
         $('.row').height(rowBoxHeight / columns + 300)
     }
-    window.addEventListener('resize', debounce(waterFall));
-    window.addEventListener('scroll', debounce(loadPageData));
+    window.addEventListener('resize', throttle(waterFall));
+    window.addEventListener('scroll', throttle(loadPageData));
 })

@@ -1,7 +1,7 @@
 $(function(){
     let page = 0;
     let endCount = 20;
-    let loadMore = false;
+    let loadMore = true;
     // let baseUrl = 'http://101.200.123.24:5555/';
     let baseUrl = 'http://123.56.69.222:5555/';
     let dataUrl =  baseUrl + '0/' + (page * endCount) + '/' + ((page * endCount) + endCount);
@@ -12,6 +12,7 @@ $(function(){
             $('.loading').show()
         },
         success: function(res) {
+            loadMore = false;
             res = res.data;
             let html = '';
             if (res.length < 20) {
@@ -60,12 +61,17 @@ $(function(){
             console.log(res)
         }
     });
-    function debounce(fn) {
-        let timeout = null;
+    // 节流函数
+    function throttle(fn) {
+        let waitRun = true;
         return function () {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => {
+            if (!waitRun) {
+                return;
+            }
+            waitRun = false;
+            setTimeout(() => {
                 fn.apply(this, arguments);
+                waitRun = true;
             }, 500);
         }
     }
@@ -76,6 +82,7 @@ $(function(){
         const scrollHeight = document.documentElement.scrollTop === 0 ? document.body.scrollHeight : document.documentElement.scrollHeight;
         if (clientHeight + scrollTop + 10 > scrollHeight) {
             if (loadMore) {
+                loadMore = false;
                 page += 1;
                 dataUrl = baseUrl + '0/' + (page * endCount) + '/' + ((page * endCount) + endCount)
                 $.ajax({
@@ -129,7 +136,6 @@ $(function(){
         var arr = [];
         var rowBoxHeight = 0;
         $(".row li").each(function (i) {
-            rowBoxHeight += $('.row li').eq(i).outerHeight();
             var height = $('.row li').eq(i).outerHeight();
             let boxheight = height;
             if (i < columns) {
@@ -141,6 +147,7 @@ $(function(){
                 arr.push(boxheight);
 
             } else {
+                console.log(arr)
                 // 其他行
                 // 找到数组中最小高度  和 它的索引
                 var minHeight = arr[0];
@@ -163,13 +170,19 @@ $(function(){
                 arr[index] = arr[index] + boxheight;
             }
         });
-        $('.row').height(rowBoxHeight / columns + 300)
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] > rowBoxHeight) {
+                rowBoxHeight = arr[i];
+            }
+        }
+        console.log(rowBoxHeight)
+        $('.row').height(rowBoxHeight+50)
 
     }
     // 页面尺寸改变时实时触发
     // window.onresize = function () {
     //     waterFall();
     // };
-    window.addEventListener('resize', debounce(waterFall));
-    window.addEventListener('scroll', debounce(loadPageData));
+    window.addEventListener('resize', throttle(waterFall));
+    window.addEventListener('scroll', throttle(loadPageData));
 })
