@@ -24,7 +24,6 @@ $(function() {
         success: function (res) {
             let c_html = '', time_str = '', minute_str = '', second_str = '';
             res = res.data;
-            console.log(res.video_data_info)
             let day, hour, minute, second;
             let duration = res.video_data_info.duration;
             day = Math.floor(duration / 86400000);
@@ -53,7 +52,7 @@ $(function() {
             $('.v-url').attr({'href': res.video_url});
             $('.like-count').html(res.video_like);
             $('.comment-count').html(res.video_comment);
-            $('.share-count').html(res.share_conut);
+            $('.share-count').html(res.share_count);
             let hot_comment = res.hot_comment_list['comment_data'];
             for (let i = 0; i < hot_comment.length; i++) {
                 c_html += '<li><span ' 
