@@ -141,8 +141,8 @@ $(function () {
             $('#yoo-list ul').append(html);
             $('#yoo-list ul').imagesLoaded(function () {
                 waterFall()
+                loadMore = true;
             });
-            loadMore = true;
         },
         error: function (res) {
             console.log(res)
@@ -205,8 +205,8 @@ $(function () {
                         $('#yoo-list ul').append(html);
                         $('#yoo-list ul').imagesLoaded(function () {
                             waterFall()
+                            loadMore = true;
                         });
-                        loadMore = true;
                         $('.loading').hide()
                     },
                     error: function (res) {

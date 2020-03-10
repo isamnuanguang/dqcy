@@ -140,13 +140,12 @@ $(function () {
             }
             $('#yoo-list ul').append(html);
             $('#yoo-list ul').imagesLoaded(function () {
-                waterFall()
+                waterFall();
+                loadMore = true;
             });
-            loadMore = true;
         },
         error: function (res) {
             console.log(res)
-            $('.loading').hide()
             $('.errorPage').show()
         }
     })
@@ -206,8 +205,8 @@ $(function () {
                         $('#yoo-list ul').append(html);
                         $('#yoo-list ul').imagesLoaded(function () {
                             waterFall()
+                            loadMore = true;
                         });
-                        loadMore = true;
                         $('.loading').hide()
                     },
                     error: function (res) {

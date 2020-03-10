@@ -151,7 +151,6 @@ $(function(){
                 arr.push(boxheight);
 
             } else {
-                console.log(arr)
                 // 其他行
                 // 找到数组中最小高度  和 它的索引
                 var minHeight = arr[0];
