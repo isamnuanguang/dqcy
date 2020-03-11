@@ -127,7 +127,7 @@ $(function () {
                     '<section>' +
                     '<a class="img" href="video.html?vid=' + res[i]['aweme_id'] + '">' +
                     '<i class="icon-play"></i>' +
-                    '<img class="video-img" src="' + res[i]['video_img_url'] + '">' +
+                    '<img class="video-img" src="./img/placeholder.png' + '" data-async-src="' + res[i]['video_img_url'] + '">' +
                     '</a>' +
                     '<div class="caption">' +
                     '<p>' + res[i]['video_title'] + '</p>' +
@@ -141,6 +141,7 @@ $(function () {
             $('#yoo-list ul').append(html);
             $('#yoo-list ul').imagesLoaded(function () {
                 waterFall()
+                lazyLoadImg()
                 loadMore = true;
             });
         },
@@ -150,7 +151,13 @@ $(function () {
             $('.errorPage').show()
         }
     })
-
+    function lazyLoadImg() {
+        $('.row li').each(function (i) {
+            if ($(this).find('.video-img').offset()['top'] - 150 < $('html').scrollTop() + $(window).height()) {
+                $(this).find('.video-img').attr({'src': $(this).find('.video-img').attr('data-async-src')});
+            }
+        })
+    }
     // 节流函数
     function throttle(fn) {
         let waitRun = true;
@@ -192,7 +199,7 @@ $(function () {
                                 '<section>' +
                                 '<a class="img" href="video.html?vid=' + res[i]['aweme_id'] + '">' +
                                 '<i class="icon-play"></i>' +
-                                '<img class="video-img" src="' + res[i]['video_img_url'] + '">' +
+                                '<img class="video-img" src="./img/placeholder.png' + '" data-async-src="' + res[i]['video_img_url'] + '">' +
                                 '</a>' +
                                 '<div class="caption">' +
                                 '<p>' + res[i]['video_title'] + '</p>' +
@@ -267,4 +274,6 @@ $(function () {
     }
     window.addEventListener('resize', throttle(waterFall));
     window.addEventListener('scroll', throttle(loadPageData));
+    window.addEventListener('scroll', waterFall);
+    window.addEventListener('scroll', throttle(lazyLoadImg))
 })

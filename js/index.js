@@ -23,7 +23,7 @@ $(function(){
                         + '<section>'
                         +'<a class="img" href="video.html?vid=' + res[i]['aweme_id'] + '">'
                         + '<i class="icon-play"></i>'
-                        + '<img class="video-img" src="' + res[i]['video_img_url'] + '">'
+                        +'<img class="video-img" src="' + './img/placeholder.png' + '" data-async-src="' + res[i]['video_img_url'] + '">'
                         + '</a>' 
                         + '<div class="caption">'
                         + '<p>' + res[i]['video_title'] + '</p>'
@@ -53,6 +53,7 @@ $(function(){
             $('#yoo-list ul').append(html);
             $('#yoo-list ul').imagesLoaded(function () {
                 waterFall()
+                lazyLoadImg()
             });
             loadMore = true;
             $('.loading').hide()
@@ -104,7 +105,7 @@ $(function(){
                                 '<section>' +
                                 '<a class="img" href="video.html?vid=' + res[i]['aweme_id'] + '">' +
                                 '<i class="icon-play"></i>' +
-                                '<img class="video-img" src="' + res[i]['video_img_url'] + '">' +
+                                '<img class="video-img" src="' + './img/placeholder.png' + '" data-async-src="' + res[i]['video_img_url'] + '">' +
                                 '</a>' +
                                 '<div class="caption">' +
                                 '<p>' + res[i]['video_title'] + '</p>' +
@@ -133,6 +134,13 @@ $(function(){
             }
         }
         
+    }
+    function lazyLoadImg() {
+        $('.row li').each(function (i) {
+            if ($(this).find('.video-img').offset()['top'] - 150 < $('html').scrollTop() + $(window).height()) {
+                $(this).find('.video-img').attr({'src': $(this).find('.video-img').attr('data-async-src')});
+            }
+        })
     }
     function waterFall() {
         var pageWidth = $('.row').width();
@@ -178,9 +186,7 @@ $(function(){
                 rowBoxHeight = arr[i];
             }
         }
-        console.log(rowBoxHeight)
-        $('.row').height(rowBoxHeight+50)
-
+        $('.row').height(rowBoxHeight+50);
     }
     // 页面尺寸改变时实时触发
     // window.onresize = function () {
@@ -188,4 +194,6 @@ $(function(){
     // };
     window.addEventListener('resize', throttle(waterFall));
     window.addEventListener('scroll', throttle(loadPageData));
+    window.addEventListener('scroll', throttle(waterFall));
+    window.addEventListener('scroll', throttle(lazyLoadImg))
 })
