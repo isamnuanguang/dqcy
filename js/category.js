@@ -132,7 +132,7 @@ $(function () {
                     '<div class="caption">' +
                     '<p>' + res[i]['video_title'] + '</p>' +
                     '<footer>' +
-                    '<small><i class="icon-like"></i>' + res[i]['video_like'] + '</small ><small><i class="icon-comment"></i>' + res[i]['video_comment'] + '</small><small class="share-box"><i class="icon-vshare"></i>' + res[i]['share_conut'] + '</small>' +
+                    '<small><i class="icon-like"></i>' + res[i]['video_like'] + '</small ><small><i class="icon-comment"></i>' + res[i]['video_comment'] + '</small><small class="share-box"><i class="icon-vshare"></i>' + res[i]['share_count'] + '</small>' +
                     '</footer>' +
                     '</div>' +
                     '</section>' +
@@ -208,7 +208,7 @@ $(function () {
                                 '<div class="caption">' +
                                 '<p>' + res[i]['video_title'] + '</p>' +
                                 '<footer>' +
-                                '<small><i class="icon-like"></i>' + res[i]['video_like'] + '</small ><small><i class="icon-comment"></i>' + res[i]['video_comment'] + '</small><small class="share-box"><i class="icon-vshare"></i>' + res[i]['share_conut'] + '</small>' +
+                                '<small><i class="icon-like"></i>' + res[i]['video_like'] + '</small ><small><i class="icon-comment"></i>' + res[i]['video_comment'] + '</small><small class="share-box"><i class="icon-vshare"></i>' + res[i]['share_count'] + '</small>' +
                                 '</footer>' +
                                 '</div>' +
                                 '</section>' +
