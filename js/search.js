@@ -110,7 +110,7 @@ $(function () {
     
     let param = (lib.GetRequest())['query'];
     $('#category-title').html('“' + param + '”' + ' 的相关视频');
-    let baseUrl = 'http://123.56.69.222:5555/';
+    let baseUrl = 'http://182.92.155.225:5555/';
     // let baseUrl = 'http://101.200.123.24:5555/';
     let page = 0;
     let endCount = 10;
@@ -132,7 +132,7 @@ $(function () {
                     '<div class="caption">' +
                     '<p>' + res[i]['video_title'] + '</p>' +
                     '<footer>' +
-                    '<small><i class="icon-like"></i>' + res[i]['video_like'] + '</small ><small><i class="icon-comment"></i>' + res[i]['video_comment'] + '</small><small class="share-box"><i class="icon-vshare"></i>' + res[i]['share_conut'] + '</small>' +
+                    '<small><i class="icon-like"></i>' + res[i]['video_like'] + '</small ><small><i class="icon-comment"></i>' + res[i]['video_comment'] + '</small><small class="share-box"><i class="icon-vshare"></i>' + res[i]['share_count'] + '</small>' +
                     '</footer>' +
                     '</div>' +
                     '</section>' +
@@ -203,7 +203,7 @@ $(function () {
                                 '<div class="caption">' +
                                 '<p>' + res[i]['video_title'] + '</p>' +
                                 '<footer>' +
-                                '<small><i class="icon-like"></i>' + res[i]['video_like'] + '</small ><small><i class="icon-comment"></i>' + res[i]['video_comment'] + '</small><small class="share-box"><i class="icon-vshare"></i>' + res[i]['share_conut'] + '</small>' +
+                                '<small><i class="icon-like"></i>' + res[i]['video_like'] + '</small ><small><i class="icon-comment"></i>' + res[i]['video_comment'] + '</small><small class="share-box"><i class="icon-vshare"></i>' + res[i]['share_count'] + '</small>' +
                                 '</footer>' +
                                 '</div>' +
                                 '</section>' +

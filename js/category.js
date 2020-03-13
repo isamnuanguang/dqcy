@@ -108,7 +108,7 @@ $(function () {
     $('#yoo-top .container').append(type_html);
 
     let param = (lib.GetRequest())['type'];
-    let baseUrl = 'http://123.56.69.222:5555/';
+    let baseUrl = 'http://182.92.155.225:5555/';
     // let baseUrl = 'http://101.200.123.24:5555/';
     let categoryUrl = baseUrl + urlList[param]['code'];
     $('#category-title').html(urlList[param]['name']);

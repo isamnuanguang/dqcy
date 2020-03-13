@@ -16,7 +16,7 @@ const lib = {
 $(function() {
     let param = (lib.GetRequest())['vid'];
     // let baseUrl = 'http://101.200.123.24:5555/';
-    let baseUrl = 'http://123.56.69.222:5555/';
+    let baseUrl = 'http://182.92.155.225:5555/';
     let dataUrl = baseUrl + param;
     $.ajax({
         url: dataUrl,
