@@ -165,7 +165,7 @@ $(function () {
                 return;
             }
             waitRun = false;
-            setTimeout(() => {
+            setTimeout(function () {
                 fn.apply(this, arguments);
                 waitRun = true;
             }, 500);

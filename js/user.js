@@ -166,13 +166,12 @@ $(function () {
                 return;
             }
             waitRun = false;
-            setTimeout(() => {
+            setTimeout(function () {
                 fn.apply(this, arguments);
                 waitRun = true;
             }, 500);
         }
     }
-
     function loadPageData() {
         const clientHeight = document.body.clientHeight && document.documentElement.clientHeight ? Math.min(document.body.clientHeight, document.documentElement.clientHeight) : document.documentElement.clientHeight;
         const scrollTop = document.documentElement.scrollTop === 0 ? document.body.scrollTop : document.documentElement.scrollTop;
