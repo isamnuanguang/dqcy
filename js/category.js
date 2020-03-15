@@ -1,6 +1,6 @@
 $(function () {
     const lib = {
-        GetRequest: () => {
+        GetRequest: function() {
             let url = location.search; //获取url中"?"符后的字串
             let theRequest = new Object();
             if (url.indexOf("?") != -1) {
