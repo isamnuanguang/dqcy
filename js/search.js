@@ -190,29 +190,29 @@ $(function () {
                     success: function (res) {
                         res = res.data;
                         let html = '';
-                        if (res.length < 10) {
-                            loadMore = false;
-                        }
                         for (let i = 0; i < res.length; i++) {
                             html += '<li>' +
-                                '<section>' +
-                                '<a class="img" href="video.html?vid=' + res[i]['aweme_id'] + '">' +
-                                '<i class="icon-play"></i>' +
-                                '<img class="video-img" src="./img/placeholder.png' + '" data-async-src="' + res[i]['video_img_url'] + '">' +
-                                '</a>' +
-                                '<div class="caption">' +
-                                '<p>' + res[i]['video_title'] + '</p>' +
-                                '<footer>' +
-                                '<small><i class="icon-like"></i>' + res[i]['video_like'] + '</small ><small><i class="icon-comment"></i>' + res[i]['video_comment'] + '</small><small class="share-box"><i class="icon-vshare"></i>' + res[i]['share_count'] + '</small>' +
-                                '</footer>' +
-                                '</div>' +
-                                '</section>' +
-                                '</li>'
+                            '<section>' +
+                            '<a class="img" href="video.html?vid=' + res[i]['aweme_id'] + '">' +
+                            '<i class="icon-play"></i>' +
+                            '<img class="video-img" src="./img/placeholder.png' + '" data-async-src="' + res[i]['video_img_url'] + '">' +
+                            '</a>' +
+                            '<div class="caption">' +
+                            '<p>' + res[i]['video_title'] + '</p>' +
+                            '<footer>' +
+                            '<small><i class="icon-like"></i>' + res[i]['video_like'] + '</small ><small><i class="icon-comment"></i>' + res[i]['video_comment'] + '</small><small class="share-box"><i class="icon-vshare"></i>' + res[i]['share_count'] + '</small>' +
+                            '</footer>' +
+                            '</div>' +
+                            '</section>' +
+                            '</li>'
                         }
                         $('#yoo-list ul').append(html);
                         $('#yoo-list ul').imagesLoaded(function () {
                             waterFall()
                             loadMore = true;
+                            if (res.length < 10) {
+                                loadMore = false;
+                            }
                         });
                         $('.loading').hide()
                     },

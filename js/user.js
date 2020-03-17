@@ -180,7 +180,7 @@ $(function () {
             if (loadMore) {
                 loadMore = false;
                 page += 1;
-                dataUrl = baseUrl + '0/' + (page * endCount) + '/' + ((page * endCount) + endCount)
+                dataUrl = userListUrl + '/' + (page * endCount) + '/' + ((page * endCount) + endCount)
                 $.ajax({
                     url: dataUrl,
                     type: 'get',
@@ -190,9 +190,6 @@ $(function () {
                     success: function (res) {
                         res = res.data;
                         let html = '';
-                        if (res.length < 20) {
-                            loadMore = false;
-                        }
                         for (let i = 0; i < res.length; i++) {
                             html += '<li>' +
                                 '<section>' +
@@ -213,6 +210,9 @@ $(function () {
                         $('#yoo-list ul').imagesLoaded(function () {
                             waterFall()
                             loadMore = true;
+                            if (res.length < 20) {
+                                loadMore = false;
+                            }
                         });
                         $('.loading').hide()
                     },

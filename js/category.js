@@ -167,9 +167,7 @@ $(function () {
     }
 
     function lazyLoadImg() {
-        console.log(123)
         $('.row li').each(function (i) {
-            console.log($(this).find('.video-img').offset()['top'], $('html').scrollTop() , $(window).height())
             if ($(this).find('.video-img').offset()['top'] - 150 < $('html').scrollTop() + $(window).height()) {
                 $(this).find('.video-img').attr({
                     'src': $(this).find('.video-img').attr('data-async-src')
@@ -183,9 +181,10 @@ $(function () {
         const scrollHeight = document.documentElement.scrollTop === 0 ? document.body.scrollHeight : document.documentElement.scrollHeight;
         if (clientHeight + scrollTop + 10 > scrollHeight) {
             if (loadMore) {
+                console.log(loadMore)
                 loadMore = false;
                 page += 1;
-                dataUrl = baseUrl + '0/' + (page * endCount) + '/' + ((page * endCount) + endCount)
+                dataUrl = categoryUrl + '/' + (page * endCount) + '/' + ((page * endCount) + endCount)
                 $.ajax({
                     url: dataUrl,
                     type: 'get',
@@ -195,9 +194,7 @@ $(function () {
                     success: function (res) {
                         res = res.data;
                         let html = '';
-                        if (res.length < 20) {
-                            loadMore = false;
-                        }
+                        
                         for (let i = 0; i < res.length; i++) {
                             html += '<li>' +
                                 '<section>' +
@@ -218,6 +215,9 @@ $(function () {
                         $('#yoo-list ul').imagesLoaded(function () {
                             waterFall()
                             loadMore = true;
+                            if (res.length < 20) {
+                                loadMore = false;
+                            }
                         });
                         $('.loading').hide()
                     },

@@ -85,6 +85,7 @@ $(function(){
         const scrollHeight = document.documentElement.scrollTop === 0 ? document.body.scrollHeight : document.documentElement.scrollHeight;
         if (clientHeight + scrollTop + 10 > scrollHeight) {
             if (loadMore) {
+                console.log(loadMore)
                 loadMore = false;
                 page += 1;
                 dataUrl = baseUrl + '0/' + (page * endCount) + '/' + ((page * endCount) + endCount)
@@ -97,9 +98,7 @@ $(function(){
                     success: function (res) {
                         res = res.data;
                         let html = '';
-                        if (res.length < 20) {
-                            loadMore = false;
-                        }
+                        
                         for (let i = 0; i < res.length; i++) {
                             html += '<li>' +
                                 '<section>' +
@@ -120,6 +119,9 @@ $(function(){
                         $('#yoo-list ul').imagesLoaded(function () {
                             waterFall()
                             loadMore = true;
+                            if (res.length < 20) {
+                                loadMore = false;
+                            }
                         });
                         $('.loading').hide()
                     },
