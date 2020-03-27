@@ -108,17 +108,20 @@ $(function () {
     $('#yoo-top .container').append(type_html);
 
     let param = (lib.GetRequest())['type'];
-    let baseUrl = 'http://182.92.155.225:5555/';
-    // let baseUrl = 'http://101.200.123.24:5555/';
-    let categoryUrl = baseUrl + urlList[param]['code'];
+    let baseUrl = 'http://182.92.155.225:8000/v1/video/';
+    let categoryUrl = baseUrl + 'video_filter/';
     $('#category-title').html(urlList[param]['name']);
     let page = 0;
     let endCount = 20;
     let loadMore = false;
-    let dataUrl = categoryUrl + '/' + (page * endCount) + '/' + ((page * endCount) + endCount)
     $.ajax({
-        url: dataUrl,
+        url: categoryUrl,
         type: 'get',
+        data: {
+            start: page*endCount,
+            end: (page * endCount) + endCount,
+            type_id: urlList[param]['code']
+        },
         success: function (res) {
             res = res.data;
             let html = '';
@@ -140,8 +143,8 @@ $(function () {
             }
             $('#yoo-list ul').append(html);
             $('#yoo-list ul').imagesLoaded(function () {
-                waterFall()
                 lazyLoadImg()
+                waterFall()
                 loadMore = true;
             });
         },
@@ -184,10 +187,15 @@ $(function () {
                 console.log(loadMore)
                 loadMore = false;
                 page += 1;
-                dataUrl = categoryUrl + '/' + (page * endCount) + '/' + ((page * endCount) + endCount)
+                // dataUrl = categoryUrl + '/' + (page * endCount) + '/' + ((page * endCount) + endCount)
                 $.ajax({
-                    url: dataUrl,
+                    url: categoryUrl,
                     type: 'get',
+                    data: {
+                        start: page * endCount,
+                        end: (page * endCount) + endCount,
+                        type_id: urlList[param]['code']
+                    },
                     beforeSend: function () {
                         $('.loading').show()
                     },

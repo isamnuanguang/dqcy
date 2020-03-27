@@ -107,21 +107,24 @@ $(function () {
     $('#yoo-top .container').append(type_html);
 
     let param = (lib.GetRequest())['uid'];
-    let baseUrl = 'http://182.92.155.225:5555/';
-    // let baseUrl = 'http://101.200.123.24:5555/';
-    let userListUrl = baseUrl + param;
+    let baseUrl = 'http://182.92.155.225:8000/v1/video/';
+    let userListUrl = baseUrl + 'video_user/' + param + '/';
     let page = 0;
     let endCount = 20;
     let loadMore = false;
-    let dataUrl = userListUrl + '/' + (page * endCount) + '/' + ((page * endCount) + endCount)
+    // let dataUrl = userListUrl + '/' + (page * endCount) + '/' + ((page * endCount) + endCount)
     $.ajax({
-        url: dataUrl,
+        url: userListUrl,
         type: 'get',
+        data: {
+            start: page*endCount,
+            end: page*endCount + endCount
+        },
         success: function (res) {
             res = res.data;
             let html = '';
-            $('.user-nickname').html(res[0]['user_nickname'] + ' 的创意视频');
-            $('.avatar-pic').attr({'src': res[0]['user_img_url']});
+            // $('.user-nickname').html(res[0]['user_nickname'] + ' 的创意视频');
+            // $('.avatar-pic').attr({'src': res[0]['user_img_url']});
             for (let i = 0; i < res.length; i++) {
                 html += '<li>' +
                     '<section>' +
@@ -180,10 +183,14 @@ $(function () {
             if (loadMore) {
                 loadMore = false;
                 page += 1;
-                dataUrl = userListUrl + '/' + (page * endCount) + '/' + ((page * endCount) + endCount)
+                // dataUrl = userListUrl + '/' + (page * endCount) + '/' + ((page * endCount) + endCount)
                 $.ajax({
-                    url: dataUrl,
+                    url: userListUrl,
                     type: 'get',
+                    data: {
+                        start: page * endCount,
+                        end: page * endCount + endCount
+                    },
                     beforeSend: function () {
                         $('.loading').show()
                     },

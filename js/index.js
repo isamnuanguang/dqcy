@@ -2,12 +2,15 @@ $(function(){
     let page = 0;
     let endCount = 20;
     let loadMore = true;
-    // let baseUrl = 'http://101.200.123.24:5555/';
-    let baseUrl = 'http://182.92.155.225:5555/';
-    let dataUrl =  baseUrl + '0/' + (page * endCount) + '/' + ((page * endCount) + endCount);
+    let baseUrl = 'http://182.92.155.225:8000/v1/';
+    let dataUrl = baseUrl + 'video/video_list/';
     $.ajax({
         url: dataUrl,
         type: 'get',
+        data: {
+            start: page,
+            end: endCount
+        },
         beforeSend: function() {
             $('.loading').show()
         },
@@ -88,10 +91,14 @@ $(function(){
                 console.log(loadMore)
                 loadMore = false;
                 page += 1;
-                dataUrl = baseUrl + '0/' + (page * endCount) + '/' + ((page * endCount) + endCount)
+                // dataUrl = baseUrl + '0/' + (page * endCount) + '/' + ((page * endCount) + endCount)
                 $.ajax({
                     url: dataUrl,
                     type: 'get',
+                    data: {
+                        start: page*endCount,
+                        end: (page*endCount) + endCount
+                    },
                     beforeSend: function () {
                         $('.loading').show()
                     },

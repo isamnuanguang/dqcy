@@ -110,15 +110,19 @@ $(function () {
     
     let param = (lib.GetRequest())['query'];
     $('#category-title').html('“' + param + '”' + ' 的相关视频');
-    let baseUrl = 'http://182.92.155.225:5555/';
-    // let baseUrl = 'http://101.200.123.24:5555/';
+    let baseUrl = 'http://182.92.155.225:8000/v1/video/';
     let page = 0;
     let endCount = 10;
     let loadMore = false;
-    let searchUrl = baseUrl + 'search/'+ param + '/' + endCount + '/' + page*endCount;
+    let searchUrl = baseUrl + 'search/';
     $.ajax({
         url: searchUrl,
         type: 'get',
+        data: {
+            start: page*endCount,
+            end: (page*endCount)+endCount,
+            word: param
+        },
         success: function (res) {
             res = res.data;
             let html = '';
@@ -180,10 +184,15 @@ $(function () {
             if (loadMore) {
                 loadMore = false;
                 page += 1;
-                searchUrl = baseUrl + 'search/' + param + '/' + endCount + '/' + page*endCount;
+                // searchUrl = baseUrl + 'search/' + param + '/' + endCount + '/' + page*endCount;
                 $.ajax({
                     url: searchUrl,
                     type: 'get',
+                    data: {
+                        start: page * endCount,
+                        end: (page * endCount) + endCount,
+                        word: param
+                    },
                     beforeSend: function () {
                         $('.loading').show()
                     },
