@@ -88,10 +88,8 @@ $(function(){
         const scrollHeight = document.documentElement.scrollTop === 0 ? document.body.scrollHeight : document.documentElement.scrollHeight;
         if (clientHeight + scrollTop + 10 > scrollHeight) {
             if (loadMore) {
-                console.log(loadMore)
                 loadMore = false;
                 page += 1;
-                // dataUrl = baseUrl + '0/' + (page * endCount) + '/' + ((page * endCount) + endCount)
                 $.ajax({
                     url: dataUrl,
                     type: 'get',
@@ -197,10 +195,6 @@ $(function(){
         }
         $('.row').height(rowBoxHeight+50);
     }
-    // 页面尺寸改变时实时触发
-    // window.onresize = function () {
-    //     waterFall();
-    // };
     window.addEventListener('resize', throttle(waterFall));
     window.addEventListener('scroll', throttle(loadPageData));
     window.addEventListener('scroll', throttle(waterFall));
