@@ -59,12 +59,14 @@ $(function() {
             $('.comment-count').html(res.video_comment);
             $('.share-count').html(res.share_count);
             let hot_comment = res.hot_comment_list['comment_data'];
-            for (let i = 0; i < hot_comment.length; i++) {
-                c_html += '<li><span ' 
-                            + 'class="button button-white button-sm">'
-                            + hot_comment[i]['text'] + '</span></li>'
+            if (hot_comment.length > 0) {
+                for (let i = 0; i < hot_comment.length; i++) {
+                    c_html += '<li><span ' 
+                                + 'class="button button-white button-sm">'
+                                + hot_comment[i]['text'] + '</span></li>'
+                }
+                $('.tags ul').append(c_html);
             }
-            $('.tags ul').append(c_html);
             recommandList(res.type_id);
         },
         error: function (res) {
