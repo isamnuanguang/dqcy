@@ -247,11 +247,10 @@ $(function () {
         var arr = [];
         var rowBoxHeight = 0;
         $(".row li").each(function (i) {
-            rowBoxHeight += $('.row li').eq(i).outerHeight();
             var height = $('.row li').eq(i).outerHeight();
             let boxheight = height;
             if (i < columns) {
-                // 2- 确定第一行
+                // 第一行
                 $(this).css({
                     top: 0,
                     left: ($(".row li").outerWidth()) * i
@@ -260,7 +259,7 @@ $(function () {
 
             } else {
                 // 其他行
-                // 3- 找到数组中最小高度  和 它的索引
+                // 找到数组中最小高度  和 它的索引
                 var minHeight = arr[0];
                 var index = 0;
                 for (var j = 0; j < arr.length; j++) {
@@ -269,19 +268,24 @@ $(function () {
                         index = j;
                     }
                 }
-                // 4- 设置下一行的第一个盒子位置
+                // 设置下一行的第一个盒子位置
                 // top值就是最小列的高度 
                 $(this).css({
                     top: arr[index],
                     left: $(".row li").eq(index).css("left")
                 });
 
-                // 5- 修改最小列的高度 
+                // 修改最小列的高度 
                 // 最小列的高度 = 当前自己的高度 + 拼接过来的高度
                 arr[index] = arr[index] + boxheight;
             }
         });
-        $('.row').height(rowBoxHeight / columns + 300)
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] > rowBoxHeight) {
+                rowBoxHeight = arr[i];
+            }
+        }
+        $('.row').height(rowBoxHeight + 50);
     }
 
     window.addEventListener('resize', throttle(waterFall));

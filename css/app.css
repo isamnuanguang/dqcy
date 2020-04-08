@@ -188,8 +188,9 @@ h6 {
 }
 
 #yoo-header {
-    height: 90px;
+    /* height: 90px; */
     color: #adb5bd;
+    font-size: 14px;
     position: relative
 }
 
@@ -260,6 +261,7 @@ h6 {
 }
 
 #yoo-header nav.nav-bar {
+    display: none;
     padding: 0 5px;
     text-align: center;
     white-space: nowrap;
@@ -331,20 +333,24 @@ h6 {
     }
 
     #yoo-header nav.nav-icon .i-menu {
+        display: none;
         left: auto;
         right: 0
     }
 
     #yoo-header nav.nav-icon .i-search {
+        display: none;
         right: 55px
     }
 
     #yoo-header nav.nav-bar {
+        display: block;
         padding: 0;
         position: absolute;
         z-index: 90;
         top: 0;
-        width: 100%;
+        right: 20px;
+        /* width: 100%; */
         background-color: transparent
     }
 

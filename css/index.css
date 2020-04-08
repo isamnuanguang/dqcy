@@ -7266,7 +7266,8 @@ only screen and (min-width: 46.875em) and (min-resolution: 1.3dppx) {
 .pricing-table .price sup,
 .pricing-table .price .price__number {
     display: inline-block;
-    vertical-align: top
+    vertical-align: top;
+    font-weight: 400;
 }
 
 .plan-tabs {

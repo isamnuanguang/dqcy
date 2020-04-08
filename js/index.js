@@ -16,11 +16,10 @@ $(function(){
         },
         success: function(res) {
             loadMore = false;
+            $('.loading').hide();
             res = res.data;
             let html = '';
-            if (res.length < 20) {
-                loadMore = false;
-            }
+            
             for(let i = 0; i < res.length; i++) {
                 html += '<li>'
                         + '<section>'
@@ -193,7 +192,7 @@ $(function(){
                 rowBoxHeight = arr[i];
             }
         }
-        $('.row').height(rowBoxHeight+50);
+        $('.row').height(rowBoxHeight + 50);
     }
     window.addEventListener('resize', throttle(waterFall));
     window.addEventListener('scroll', throttle(loadPageData));
