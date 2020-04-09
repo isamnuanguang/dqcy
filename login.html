@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=5,minimum-scale=1,viewport-fit=cover" />
+    <meta name="robots" content="all">
+    <meta name="revisit-after" content="1 days">
+    <meta name="applicable-device" content="pc,mobile">
+    <mobile:mobile type="pc,mobile" />
+    <meta name="keywords" content="沙抖创意官网,沙抖,创意,短视频,抖音,快手,抖大大,微视,剧本,制作,脚本,营销,拍摄,短视频大全,短视频拍摄报价,短视频制作报价">
+    <meta name="description"
+        content="沙抖创意是一个最火爆的抖音短视频创意大全，它会聪明的分析最火爆短视频，并搜集到大数据库，整理好分类显示，自动为你推荐喜欢的内容，并提供短视频创意的定制和短视频拍摄，及短视频营销投放">
+    <link href="css/app.css" rel="stylesheet" type="text/css">
+    <title>登录-沙抖创意-火爆短视频大全及视频创作服务</title>
+    <style>
+        .auth-container {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            --antd-wave-shadow-color: #fe2d54;
+            text-align: center;
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue';
+            line-height: 1.5;
+            font-feature-settings: 'tnum';
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+            width: 400px;
+            height: 390px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .auth-qr-container {
+            width: 100%;
+            height: 280px;
+            margin-top: 20px;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            position: relative;
+            -moz-box-orient: vertical;
+            -moz-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -moz-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -moz-box-pack: start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+        }
+        .auth-qr-container .qr-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin-top: 30px;
+        }
+        .pink {
+            color: #fe2c55;
+        }
+    </style>
+</head>
+<body>
+    <header id="yoo-header">
+        <nav class="nav-icon">
+            <a href="index.html"  class="i-brand"> 沙抖创意 </a>
+            <a href="javascript:;" class="i-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24" stroke-width="3.5">
+                    <path d="M4 8 L28 8 M4 16 L28 16 M4 24 L28 24"></path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" stroke-width="3.5">
+                    <path d="M2 30 L30 2 M30 30 L2 2"></path>
+                </svg>
+            </a>
+            <a href="search-input.html" class="i-search" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20" stroke-width="3.5">
+                    <circle cx="14" cy="14" r="12"></circle>
+                    <path d="M23 23 L30 30"></path>
+                </svg>
+            </a>
+        </nav>
+        <nav class="nav-bar">
+            <!-- <a href="#/" title="Discover">Discover</a> 
+            <a href="#/inspirations"title="Inspirations">Inspirations</a> 
+            <a href="#/hot-posts"title="What&#39;s hot">What's hot</a> 
+            <a href="#/inspirations/girls"title="Girls">Girls</a> 
+            <a href="#/inspirations/travel" title="Travel">Travel</a> 
+            <a href="#/inspirations/funny" title="Funny">Funny</a> 
+            <a href="#/tag/love" title="Love">#Love</a> 
+            <a href="#/tag/instagood" title="Instagood">#Instagood</a> 
+            <a href="#/tag/beautiful" title="Beautiful">#Beautiful</a> -->
+        </nav>
+        <ul class="nav-dropdown">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="type.html">创意分类</a></li>
+            <li><a href="buy.html">订购</a></li>
+            <!-- <li><a href="javascript:;">案例</a></li>
+            <li><a href="javascript:;">招募合作</a></li>
+            <li><a href="javascript:;">关于</a></li> -->
+        </ul>
+    </header>
+    <div class="auth-container">
+        <div class="auth-qr-container">
+            <p class="hint-download"><span>使用</span><span class="pink">抖音短视频APP</span><span>，打开首页搜索-扫一扫</span></p>
+            <p><span>安全登录，防止盗号</span></p>
+            <div class="qr-container" id="qrcode">
+                <!-- <img class="qr"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAABlBMVEX///8AAABVwtN+AAAC+0lEQVR42uyY3arjMQjEBV9L8NUFX0twmfH/0cLexotDA0vPpr+LNNFxVH7rt/7i0u4OE+3wzgztDBMPbq8BIRoe3qUhph2GneL2GpCNo5V3lofguxIxbq8CJho29xNaZp65DuAjmyvMszR0FQhRxkkWTpjhEzBfr3ka6O78z/qK6sMAl2cXAjcQLF5Io+8MPgsoXqfLzPBunV0KtmwREM9wJk9mOZIHEYzMuQJmAUC0hAhypQyB4jxo533MDaBDkLcIWXOeDvlTmrUHFOIkrj8oZXww8VgDRCHjXtBwMzHTMvxvZHUJEPPRK89CBkG/eOpNwLmFK0IhAexh5m/6LgAsH4X8CeVTZeHg8fErDgOKKqa3kHcxaFntcw9oRi3T1VFNtMvEc3J6C4BcBCTcxIA4js3qugWAyMINibGY0OZov695HqCxoqkJu4TLboVdA7IYMWJ0NvAVlLR+hHQBKDEz6BZCBWlL6dDsRSC8kSOGDwRP0G9+PNZ5gBdUeBmHz2TiUE4fi3EeQMxCvzyhHSwjSGbubQEwOUhgPNIVKyist3ysAExU1FLUVJo9CtlreVcAocVh29NX70E1eQTkPMBiNq/TSOGRdNS6NYAOC4ljMBq8qDLe3Wv/jwN+3c+0ITbH1EAgrQGsIzgcChkHFdTReH/FcQDi0de/6U3pPZHUsQVM1Jope2H85VPu9StzjgKQzrIpIPgOactxTckekNMEUUvREKGumb4t6QaAyv4oefGRJoQeB3IeSOg4nsqo6zk0rk22ALxQyRR4GC2Ei8/4LLYAmD1n+4Pmh/2gOMV8E3Dk7VxXFwdYRQvYawCdXTF9nJOrjrF+T0FZAKDeOh2oc3bIgernyGwBYAKz+YC1mVkFPj/a4sMA/Qx3Cm1IzAALF1ayBkwVwSYnZ8ggs3EcawAH2rA6iNOeKcGMrFYBfIVtOM18rJ6vAgzZ6YI4KckytsdrQFxzkuDJjLUNMXS7nA2ge1KV3bH49MhsCteA3/qtP7b+BQAA//8cFVauHpgpIwAAAABJRU5ErkJggg=="
+                    alt=""> -->
+                </div>
+            <div class="tips-container"><span class="tips-content"></span></div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+    <script src="js/qrcode.min.js"></script>
+    <script src="js/md5.js"></script>
+    <script src="js/js-cookie.js"></script>
+    <script>
+        $(function () {
+            let ua = navigator.userAgent;
+            let timestamp = Math.floor(new Date().getTime()/1000);
+            let state = md5(ua + timestamp+ 'shadou');
+            $.ajax({
+                url: 'http://182.92.155.225:8000/v1/user/platform_code/',
+                type: 'get',
+                data: {
+                    state: state
+                },
+                success: function (res) {
+                    new QRCode(document.getElementById("qrcode"), {
+                        text: res.url,
+                        width: 180,
+                        height: 180
+                    });
+                    setTimeout(function() {
+                        setInterval(() => {
+                            $.ajax({
+                                url: 'http://182.92.155.225:8000/v1/user/douyin_login/',
+                                type: 'post',
+                                data: {
+                                    state: state
+                                },
+                                success: function(res) {
+                                    if (res.jwt_token) {
+                                        Cookie.set('jwt_token', res.jwt_token);
+                                        window.location.href="index.html";
+                                        return;
+                                    } else {
+                                        console.log(res);
+                                    }
+                                },
+                                error: function(err) {
+                                    console.log(err)
+                                }
+                            })
+                        }, 1000);
+                    }, 2000);
+                },
+                error: function (err) {
+                    console.log(err);
+                    window.history.go(-1)
+                }
+            })
+            let qr = $('.qr');
+            
+        })
+    </script>
+</body>
+</html>
